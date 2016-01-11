@@ -17,6 +17,6 @@
   delay: 5
 
 - name: Tagging snapshot
-  command: 'aws ec2 create-tags --region {{ ansible_ec2_placement_region }} --resources "{{ ebs_snapshot_id }}" --tags "[{\"Key\":\"Name\",\"Value\":\"{{ buri_ami_full_name }} {{ buri_disk_type }} EBS AMI\"}]"'
+  command: 'aws ec2 create-tags --region {{ ansible_ec2_placement_region }} --resources "{{ ebs_snapshot_id }}" --tags "[{\"Key\":\"Name\",\"Value\":\"{{ buri_ami_full_name }} {{ buri_disk_type }} EBS AMI\"}, {\"Key\":\"HVM_AMI_ID\",\"Value\":\"{{ ami_id_hvm_instance }}\"}, {\"Key\":\"PVM_AMI_ID\",\"Value\":\"{{ ami_id_pvm_instance }}\"}]"'
 
 
